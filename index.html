@@ -6,25 +6,21 @@
   <title>North Star Azure Group</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #06111f;
-      --bg-soft: #0b1b2f;
-      --panel: rgba(10, 23, 40, 0.86);
-      --panel-strong: rgba(12, 28, 48, 0.96);
-      --panel-light: rgba(255, 255, 255, 0.04);
-      --text: #edf6ff;
-      --muted: #b8c9dd;
-      --line: rgba(255, 255, 255, 0.10);
+      --bg: #ffffff;
+      --surface: #ffffff;
+      --surface-soft: #f7f9fc;
+      --border: #e6ebf2;
+      --text: #132238;
+      --muted: #5f7085;
+      --heading: #0f1728;
       --azure: #0078d4;
-      --azure-2: #2899f5;
-      --azure-3: #6bc7ff;
-      --success: #39d98a;
-      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
-      --radius: 24px;
-      --radius-sm: 18px;
-      --max: 1180px;
+      --azure-soft: #eef6ff;
+      --shadow: 0 12px 30px rgba(16, 36, 64, 0.06);
+      --radius: 22px;
+      --max: 1040px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -32,18 +28,13 @@
 
     body {
       font-family: 'Inter', sans-serif;
+      background: var(--bg);
       color: var(--text);
-      background:
-        radial-gradient(circle at 12% 8%, rgba(0, 120, 212, 0.24), transparent 28%),
-        radial-gradient(circle at 85% 15%, rgba(107, 199, 255, 0.14), transparent 18%),
-        radial-gradient(circle at 50% 100%, rgba(40, 153, 245, 0.10), transparent 30%),
-        linear-gradient(135deg, #040b16 0%, #08111f 45%, #0d1b31 100%);
-      min-height: 100vh;
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
-    img { max-width: 100%; display: block; }
     a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
 
     .container {
       width: min(var(--max), calc(100% - 2rem));
@@ -51,12 +42,12 @@
     }
 
     .topbar {
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(5, 13, 24, 0.74);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      backdrop-filter: blur(14px);
+      backdrop-filter: blur(10px);
     }
 
     .nav {
@@ -74,904 +65,193 @@
     }
 
     .brand-mark {
-      width: 52px;
-      height: 52px;
-      border-radius: 16px;
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #28a8ff, #0078d4 70%, #005a9e);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 24px rgba(0, 120, 212, 0.18);
       display: grid;
       place-items: center;
-      position: relative;
-      background: linear-gradient(135deg, #1eb6ff, #0078d4 65%, #005ba1);
-      box-shadow: 0 16px 30px rgba(0, 120, 212, 0.32);
-      overflow: hidden;
     }
 
     .brand-mark::before,
     .brand-mark::after {
       content: "";
       position: absolute;
-      background: rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.2);
       transform: rotate(45deg);
       border-radius: 8px;
     }
 
     .brand-mark::before {
-      width: 42px;
-      height: 12px;
-      top: 11px;
-      left: -5px;
+      width: 36px;
+      height: 10px;
+      top: 12px;
+      left: -3px;
     }
 
     .brand-mark::after {
-      width: 18px;
-      height: 48px;
+      width: 16px;
+      height: 44px;
       right: 9px;
       top: 0;
-      opacity: 0.55;
     }
 
-    .brand-letter {
+    .brand-mark span {
       position: relative;
       z-index: 1;
-      font-size: 1.15rem;
-      font-weight: 900;
-      letter-spacing: -0.04em;
-      color: white;
-    }
-
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.1;
+      color: #fff;
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: -0.03em;
     }
 
     .brand-text strong {
+      display: block;
+      color: var(--heading);
       font-size: 1rem;
       letter-spacing: -0.02em;
     }
 
     .brand-text span {
-      font-size: 0.83rem;
+      display: block;
       color: var(--muted);
+      font-size: 0.84rem;
       font-weight: 600;
+      margin-top: 0.08rem;
     }
 
     .nav-links {
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
-      gap: 1.2rem;
+      gap: 1.25rem;
+      flex-wrap: wrap;
     }
 
     .nav-links a {
       color: var(--muted);
       font-weight: 600;
-      transition: 0.2s ease;
+      transition: color 0.2s ease;
     }
 
-    .nav-links a:hover { color: white; }
+    .nav-links a:hover { color: var(--azure); }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.55rem;
-      padding: 0.95rem 1.3rem;
+      padding: 0.92rem 1.28rem;
       border-radius: 999px;
-      font-weight: 800;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
-      cursor: pointer;
-      border: none;
-      font-family: inherit;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .btn:hover { transform: translateY(-2px); }
+    .btn:hover { transform: translateY(-1px); }
 
     .btn-primary {
-      color: white;
-      background: linear-gradient(135deg, var(--azure-2), var(--azure));
-      box-shadow: 0 16px 28px rgba(0, 120, 212, 0.30);
+      background: var(--azure);
+      color: #fff;
+      box-shadow: 0 10px 22px rgba(0, 120, 212, 0.16);
     }
 
     .btn-secondary {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.12);
-      color: var(--text);
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 1px solid rgba(107, 199, 255, 0.30);
-      color: #cde9ff;
+      background: #fff;
+      color: var(--heading);
+      border: 1px solid var(--border);
     }
 
     .hero {
-      padding: 5.5rem 0 3rem;
+      padding: 5rem 0 2.5rem;
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 2rem;
-      align-items: center;
+    .hero-wrap {
+      background: linear-gradient(180deg, #ffffff 0%, #f9fbfe 100%);
+      border: 1px solid var(--border);
+      border-radius: 32px;
+      padding: 3.2rem;
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 0.55rem;
-      padding: 0.45rem 0.8rem;
+      gap: 0.5rem;
+      padding: 0.42rem 0.8rem;
       border-radius: 999px;
-      background: rgba(107, 199, 255, 0.08);
-      border: 1px solid rgba(107, 199, 255, 0.22);
-      color: var(--azure-3);
-      font-size: 0.84rem;
-      font-weight: 800;
+      background: var(--azure-soft);
+      color: var(--azure);
+      font-size: 0.82rem;
+      font-weight: 700;
       margin-bottom: 1rem;
     }
 
     h1 {
-      font-size: clamp(2.6rem, 6vw, 5.1rem);
-      line-height: 0.95;
-      letter-spacing: -0.06em;
+      color: var(--heading);
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
+      max-width: 720px;
       margin-bottom: 1rem;
     }
 
     .hero p {
+      max-width: 700px;
       color: var(--muted);
       font-size: 1.08rem;
-      max-width: 650px;
     }
 
     .hero-actions {
       display: flex;
+      gap: 1rem;
       flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 1.8rem;
-      margin-bottom: 1.8rem;
+      margin-top: 1.7rem;
     }
 
-    .quick-info {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-      margin-top: 1.3rem;
+    section {
+      padding: 1.4rem 0 2.2rem;
     }
 
-    .quick-card {
-      padding: 1rem;
-      border-radius: var(--radius-sm);
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .quick-card .label {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--azure-3);
-      font-weight: 800;
-      margin-bottom: 0.32rem;
-    }
-
-    .quick-card .value {
-      font-size: 1rem;
-      font-weight: 800;
-    }
-
-    .hero-panel {
-      border-radius: 28px;
-      padding: 1.4rem;
-      background: linear-gradient(180deg, rgba(16, 34, 59, 0.96), rgba(8, 18, 34, 0.95));
-      border: 1px solid rgba(255,255,255,0.10);
-      box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-panel::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top right, rgba(40,153,245,0.28), transparent 34%);
-      pointer-events: none;
-    }
-
-    .meeting-badge,
-    .pill {
-      display: inline-block;
-      width: fit-content;
-      padding: 0.42rem 0.78rem;
-      border-radius: 999px;
-      font-size: 0.78rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--azure-3);
-      background: rgba(107, 199, 255, 0.08);
-      border: 1px solid rgba(107, 199, 255, 0.18);
-      margin-bottom: 0.85rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .meeting-card h2 {
-      position: relative;
-      z-index: 1;
-      font-size: 1.75rem;
-      line-height: 1.1;
-      letter-spacing: -0.03em;
-      margin-bottom: 1rem;
-    }
-
-    .meeting-list {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      gap: 0.85rem;
-    }
-
-    .meeting-item {
-      padding: 1rem;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .meeting-item strong {
-      display: block;
-      margin-bottom: 0.25rem;
-      color: var(--azure-3);
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    section { padding: 2.2rem 0; }
-
-    .section-heading {
+    .section-header {
       margin-bottom: 1.25rem;
     }
 
-    .section-heading h3 {
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
+    .section-header h2 {
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      color: var(--heading);
       letter-spacing: -0.04em;
       margin-bottom: 0.55rem;
     }
 
-    .section-heading p {
-      color: var(--muted);
+    .section-header p {
       max-width: 760px;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.2rem;
-    }
-
-    .card,
-    .news-card,
-    .schedule-card,
-    .join-card,
-    .form-card {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 1.45rem;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(10px);
-    }
-
-    .card-icon {
-      width: 56px;
-      height: 56px;
-      border-radius: 16px;
-      display: grid;
-      place-items: center;
-      font-size: 1.3rem;
-      background: linear-gradient(135deg, rgba(40,153,245,0.20), rgba(107,199,255,0.14));
-      border: 1px solid rgba(255,255,255,0.10);
-      margin-bottom: 1rem;
-    }
-
-    .card h4,
-    .news-card h4,
-    .schedule-card h4,
-    .join-card h4,
-    .form-card h4 {
-      font-size: 1.25rem;
-      line-height: 1.15;
-      letter-spacing: -0.03em;
-      margin-bottom: 0.6rem;
-    }
-
-    .card p,
-    .news-card p,
-    .schedule-card p,
-    .join-card p,
-    .form-card p,
-    .news-item p,
-    .schedule-content p,
-    .small-text {
       color: var(--muted);
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.65rem;
+      box-shadow: var(--shadow);
+    }
+
+    .description-card {
+      padding: 2rem;
+      background: #fff;
+    }
+
+    .description-card p + p {
+      margin-top: 1rem;
     }
 
     .news-grid,
     .schedule-grid,
-    .join-grid {
+    .registration-grid {
       display: grid;
-      gap: 1.2rem;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
     }
 
-    .news-grid { grid-template-columns: 1.15fr 0.85fr; }
-    .schedule-grid { grid-template-columns: 0.95fr 1.05fr; }
-    .join-grid { grid-template-columns: 0.95fr 1.05fr; align-items: start; }
-
-    .news-list,
-    .schedule-list,
-    .link-stack {
-      display: grid;
-      gap: 1rem;
-    }
-
-    .news-item,
-    .schedule-item,
-    .link-card {
-      padding: 1rem;
-      border-radius: 18px;
-      background: var(--panel-light);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .news-item h5,
-    .schedule-content h5,
-    .link-card h5 {
-      font-size: 1rem;
-      margin-bottom: 0.32rem;
-    }
-
-    .schedule-item {
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
-    }
-
-    .schedule-date {
-      min-width: 76px;
-      text-align: center;
-      padding: 0.78rem 0.55rem;
-      border-radius: 16px;
-      background: linear-gradient(135deg, rgba(40,153,245,0.22), rgba(0,120,212,0.16));
-      border: 1px solid rgba(255,255,255,0.09);
-      font-weight: 900;
-      line-height: 1.1;
-    }
-
-    .schedule-date span {
-      display: block;
-      margin-bottom: 0.22rem;
-      font-size: 0.78rem;
-      color: var(--azure-3);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .schedule-content small,
-    .link-card small {
-      color: #aad8ff;
-      font-weight: 700;
-    }
-
-    .join-box {
-      margin-top: 1rem;
-      padding: 1rem;
-      border-radius: 18px;
-      background: rgba(0, 120, 212, 0.10);
-      border: 1px solid rgba(40, 153, 245, 0.20);
-    }
-
-    .link-card {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .link-actions {
-      display: flex;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-      margin-top: 1rem;
-    }
-
-    form {
-      display: grid;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .field-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
-    }
-
-    .form-group {
-      display: grid;
-      gap: 0.45rem;
-    }
-
-    label {
-      font-size: 0.92rem;
-      font-weight: 700;
-      color: #dcecff;
-    }
-
-    input,
-    select,
-    textarea {
-      width: 100%;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.04);
-      color: var(--text);
-      border-radius: 16px;
-      padding: 0.95rem 1rem;
-      font: inherit;
-      outline: none;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-    }
-
-    input::placeholder,
-    textarea::placeholder {
-      color: #8eabc6;
-    }
-
-    input:focus,
-    select:focus,
-    textarea:focus {
-      border-color: rgba(40, 153, 245, 0.75);
-      box-shadow: 0 0 0 4px rgba(40, 153, 245, 0.14);
-      background: rgba(255,255,255,0.06);
-    }
-
-    textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    .check-row {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      padding: 0.2rem 0;
-    }
-
-    .check-row input[type="checkbox"] {
-      width: 18px;
-      height: 18px;
-      margin-top: 0.18rem;
-      accent-color: var(--azure);
-    }
-
-    .form-note {
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-
-    .success-note {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      margin-top: 0.35rem;
-      color: #baf4d4;
-      font-weight: 700;
-      font-size: 0.9rem;
-    }
-
-    footer {
-      padding: 2.6rem 0 3rem;
-      color: var(--muted);
-    }
-
-    .footer-card {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      padding: 1.3rem 1.4rem;
-      border-radius: 22px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .footer-card strong {
-      display: block;
-      color: white;
-      font-size: 1.05rem;
-      margin-bottom: 0.3rem;
-    }
-
-    @media (max-width: 980px) {
-      .hero-grid,
-      .cards,
-      .news-grid,
-      .schedule-grid,
-      .join-grid,
-      .quick-info,
-      .field-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 760px) {
-      .nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .nav-links {
-        width: 100%;
-        justify-content: flex-start;
-      }
-
-      .hero {
-        padding-top: 4rem;
-      }
-
-      h1 {
-        font-size: clamp(2.4rem, 12vw, 3.9rem);
-      }
-
-      .link-card,
-      .footer-card {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-  </style>
-</head>
-<body>
-  <header class="topbar">
-    <div class="container nav">
-      <a href="#home" class="brand">
-        <div class="brand-mark">
-          <span class="brand-letter">NS</span>
-        </div>
-        <div class="brand-text">
-          <strong>North Star Azure Group</strong>
-          <span>Azure Fundamentals User Group</span>
-        </div>
-      </a>
-
-      <nav class="nav-links">
-        <a href="#about">About</a>
-        <a href="#news">News</a>
-        <a href="#meetings">Meetings</a>
-        <a href="#join">Join</a>
-        <a href="#signup" class="btn btn-primary">Sign Up</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero" id="home">
-      <div class="container hero-grid">
-        <div>
-          <div class="eyebrow">☁ Azure learning for the local community</div>
-          <h1>North Star Azure Group</h1>
-          <p>
-            A welcoming Azure Fundamentals user group for learners, IT professionals, students, and community members who want practical cloud knowledge, local connection, and consistent updates. Join us for news, beginner-friendly learning, and bi-monthly community meetings.
-          </p>
-
-          <div class="hero-actions">
-            <a href="#signup" class="btn btn-primary">Become a Member</a>
-            <a href="#meetings" class="btn btn-secondary">View Meeting Schedule</a>
-          </div>
-
-          <div class="quick-info">
-            <div class="quick-card">
-              <div class="label">Focus</div>
-              <div class="value">Azure Fundamentals</div>
-            </div>
-            <div class="quick-card">
-              <div class="label">Meetings</div>
-              <div class="value">Bi-monthly • 2nd Thursday</div>
-            </div>
-            <div class="quick-card">
-              <div class="label">Time</div>
-              <div class="value">5:30 PM – 7:00 PM</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-panel">
-          <span class="meeting-badge">Upcoming Community Rhythm</span>
-          <div class="meeting-card">
-            <h2>Learn Azure, follow updates, and grow with a strong local cloud community.</h2>
-            <div class="meeting-list">
-              <div class="meeting-item">
-                <strong>When</strong>
-                Every 2nd Thursday on a bi-monthly schedule
-              </div>
-              <div class="meeting-item">
-                <strong>Time</strong>
-                5:30 PM – 7:00 PM
-              </div>
-              <div class="meeting-item">
-                <strong>What to Expect</strong>
-                Azure basics, Microsoft cloud updates, practical demos, certification tips, and networking.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="container">
-        <div class="section-heading">
-          <h3>Why this group matters</h3>
-          <p>
-            North Star Azure Group is designed to make cloud learning approachable and practical. Whether you are just beginning with Azure or strengthening your foundation, this group offers a place to learn, ask questions, and connect with others in the community.
-          </p>
-        </div>
-
-        <div class="cards">
-          <article class="card">
-            <div class="card-icon">📘</div>
-            <h4>Beginner-Friendly Learning</h4>
-            <p>Clear sessions on Azure basics, core services, cloud concepts, and practical entry points for new learners.</p>
-          </article>
-
-          <article class="card">
-            <div class="card-icon">📰</div>
-            <h4>News and Updates</h4>
-            <p>Stay informed with Azure platform updates, certification opportunities, local group news, and upcoming events.</p>
-          </article>
-
-          <article class="card">
-            <div class="card-icon">🤝</div>
-            <h4>Community Connection</h4>
-            <p>Meet local professionals, students, and technology enthusiasts who want to grow together and support one another.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="news">
-      <div class="container">
-        <div class="section-heading">
-          <h3>News and updates</h3>
-          <p>
-            Use this section to post the latest Azure news, upcoming learning topics, certification reminders, and community announcements.
-          </p>
-        </div>
-
-        <div class="news-grid">
-          <article class="news-card">
-            <span class="pill">Featured Update</span>
-            <h4>Welcome to the launch of North Star Azure Group</h4>
-            <p>
-              We are building a local space for people interested in Azure Fundamentals to learn together, share ideas, and stay connected to cloud news and opportunities.
-            </p>
-            <div class="join-box">
-              <strong>Suggested kickoff topic:</strong>
-              <p>Introduction to Azure, cloud concepts, and how to begin preparing for AZ-900.</p>
-            </div>
-          </article>
-
-          <div class="news-list">
-            <article class="news-item">
-              <h5>Community Update</h5>
-              <p>Bi-monthly meetings will include beginner-friendly demos, member highlights, and time for questions and networking.</p>
-            </article>
-
-            <article class="news-item">
-              <h5>Learning Spotlight</h5>
-              <p>Future sessions can cover Azure Portal basics, storage, virtual machines, identity, and certification preparation.</p>
-            </article>
-
-            <article class="news-item">
-              <h5>Member News</h5>
-              <p>Share certification wins, personal projects, and local technology events to keep the group active and inspiring.</p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="meetings">
-      <div class="container">
-        <div class="section-heading">
-          <h3>Meeting schedule</h3>
-          <p>
-            North Star Azure Group meets on the 2nd Thursday on a bi-monthly schedule from 5:30 PM to 7:00 PM.
-          </p>
-        </div>
-
-        <div class="schedule-grid">
-          <article class="schedule-card">
-            <span class="pill">Regular Schedule</span>
-            <h4>Bi-monthly meetings</h4>
-            <p>
-              A reliable format for busy professionals, students, and learners who want a consistent opportunity to connect and keep building Azure knowledge.
-            </p>
-
-            <div class="schedule-list">
-              <div class="schedule-item">
-                <div class="schedule-date"><span>When</span>2nd<br>Thu</div>
-                <div class="schedule-content">
-                  <h5>Community Meetup</h5>
-                  <small>Every other month</small>
-                </div>
-              </div>
-
-              <div class="schedule-item">
-                <div class="schedule-date"><span>Time</span>5:30<br>– 7:00</div>
-                <div class="schedule-content">
-                  <h5>Evening Session</h5>
-                  <small>Learning, discussion, networking</small>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <article class="schedule-card">
-            <span class="pill">Sample Agenda</span>
-            <h4>Typical meeting flow</h4>
-            <div class="schedule-list">
-              <div class="schedule-item">
-                <div class="schedule-date"><span>5:30</span>PM</div>
-                <div class="schedule-content">
-                  <h5>Welcome and introductions</h5>
-                  <p>Quick networking, announcements, and community highlights.</p>
-                </div>
-              </div>
-
-              <div class="schedule-item">
-                <div class="schedule-date"><span>5:45</span>PM</div>
-                <div class="schedule-content">
-                  <h5>Azure Fundamentals session</h5>
-                  <p>Beginner-friendly topic or a short practical demo.</p>
-                </div>
-              </div>
-
-              <div class="schedule-item">
-                <div class="schedule-date"><span>6:30</span>PM</div>
-                <div class="schedule-content">
-                  <h5>News, updates, and Q&amp;A</h5>
-                  <p>Azure updates, certification resources, and future topics.</p>
-                </div>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="join">
-      <div class="container">
-        <div class="section-heading">
-          <h3>Join and follow the group</h3>
-          <p>
-            Add your Eventbrite and Meetup links here so members can register, follow upcoming sessions, and stay connected.
-          </p>
-        </div>
-
-        <div class="join-grid">
-          <article class="join-card">
-            <span class="pill">Group Links</span>
-            <h4>Make it easy for members to register and stay updated</h4>
-            <p>
-              Replace the placeholder links below with your real Eventbrite, Meetup, newsletter, or Microsoft Forms links.
-            </p>
-
-            <div class="link-stack" style="margin-top:1rem;">
-              <div class="link-card">
-                <div>
-                  <h5>Eventbrite Registration</h5>
-                  <small>Use for official event sign-up pages</small>
-                </div>
-                <a class="btn btn-outline" href="https://www.eventbrite.com/" target="_blank" rel="noopener">Open Eventbrite</a>
-              </div>
-
-              <div class="link-card">
-                <div>
-                  <h5>Meetup Community Page</h5>
-                  <small>Use for community visibility and RSVPs</small>
-                </div>
-                <a class="btn btn-outline" href="https://www.meetup.com/" target="_blank" rel="noopener">Open Meetup</a>
-              </div>
-
-              <div class="link-card">
-                <div>
-                  <h5>Email Newsletter</h5>
-                  <small>Add your mailing list or Microsoft Forms link</small>
-                </div>
-                <a class="btn btn-outline" href="#signup">Go to Signup Form</a>
-              </div>
-            </div>
-
-            <div class="link-actions">
-              <a href="#signup" class="btn btn-primary">Join the Group</a>
-              <a href="#meetings" class="btn btn-secondary">See Upcoming Format</a>
-            </div>
-          </article>
-
-          <article class="form-card" id="signup">
-            <span class="pill">Signup Form</span>
-            <h4>Stay informed about meetings and updates</h4>
-            <p>
-              This form is ready for your site. To make it collect real submissions, connect it to Formspree, FormSubmit, Microsoft Forms, or your preferred backend.
-            </p>
-
-            <form action="https://formspree.io/f/your-form-id" method="POST">
-              <div class="field-grid">
-                <div class="form-group">
-                  <label for="firstName">First Name</label>
-                  <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" required>
-                </div>
-
-                <div class="form-group">
-                  <label for="lastName">Last Name</label>
-                  <input type="text" id="lastName" name="lastName" placeholder="Enter your last name" required>
-                </div>
-              </div>
-
-              <div class="field-grid">
-                <div class="form-group">
-                  <label for="email">Email Address</label>
-                  <input type="email" id="email" name="email" placeholder="Enter your email" required>
-                </div>
-
-                <div class="form-group">
-                  <label for="role">I am a...</label>
-                  <select id="role" name="role">
-                    <option value="">Select one</option>
-                    <option>Student</option>
-                    <option>IT Professional</option>
-                    <option>Developer</option>
-                    <option>Educator</option>
-                    <option>Business Professional</option>
-                    <option>Community Member</option>
-                    <option>Other</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="interest">Areas of Interest</label>
-                <textarea id="interest" name="interest" placeholder="Example: Azure Fundamentals, AZ-900 preparation, cloud basics, networking, demos"></textarea>
-              </div>
-
-              <label class="check-row">
-                <input type="checkbox" name="newsletter" checked>
-                <span class="form-note">I would like to receive updates about meetings, Azure news, and future community events.</span>
-              </label>
-
-              <div>
-                <button type="submit" class="btn btn-primary">Submit Signup</button>
-                <div class="success-note">✔ Replace the form action with your real form endpoint before publishing.</div>
-              </div>
-            </form>
-          </article>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <div class="footer-card">
-        <div>
-          <strong>North Star Azure Group</strong>
-          <span>Azure Fundamentals • News • Updates • Bi-monthly Community Meetings</span>
-        </div>
-        <div>
-          2nd Thursdays • 5:30 PM – 7:00 PM
-        </div>
-      </div>
-    </div>
-  </footer>
-</body>
-</html>
+    .label {
+      di
