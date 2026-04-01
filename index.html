@@ -13,9 +13,9 @@
       --surface: #ffffff;
       --surface-soft: #f7f9fc;
       --border: #e6ebf2;
-      --text: #132238;
-      --muted: #5f7085;
-      --heading: #0f1728;
+      --text: #0b0b0b;
+      --muted: #444444;
+      --heading: #000000;
       --azure: #0078d4;
       --azure-soft: #eef6ff;
       --shadow: 0 12px 30px rgba(16, 36, 64, 0.06);
@@ -254,4 +254,358 @@
     }
 
     .label {
-      di
+      display: inline-block;
+      padding: 0.38rem 0.72rem;
+      border-radius: 999px;
+      background: var(--azure-soft);
+      color: var(--azure);
+      font-size: 0.76rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.8rem;
+    }
+
+    .card h3 {
+      color: var(--heading);
+      font-size: 1.28rem;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.65rem;
+    }
+
+    .card p,
+    .card li,
+    .meta,
+    .small-note {
+      color: var(--muted);
+    }
+
+    .news-list,
+    .schedule-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .news-item,
+    .schedule-item {
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 1rem 1.05rem;
+    }
+
+    .news-item h4,
+    .schedule-item h4 {
+      color: var(--heading);
+      font-size: 1rem;
+      margin-bottom: 0.35rem;
+      letter-spacing: -0.02em;
+    }
+
+    .schedule-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .time-box {
+      min-width: 88px;
+      text-align: center;
+      border-radius: 16px;
+      padding: 0.78rem 0.55rem;
+      background: var(--azure-soft);
+      color: var(--azure);
+      font-weight: 800;
+      line-height: 1.1;
+      border: 1px solid #d9ebff;
+    }
+
+    .time-box span {
+      display: block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.24rem;
+    }
+
+    .registration-card {
+      padding: 2rem;
+      text-align: left;
+    }
+
+    .registration-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-top: 1.25rem;
+    }
+
+    .google-form-box {
+      background: var(--surface-soft);
+      border: 1px dashed #bfdcff;
+      border-radius: 18px;
+      padding: 1rem 1.05rem;
+      margin-top: 1.15rem;
+    }
+
+    .google-form-box code {
+      display: block;
+      margin-top: 0.45rem;
+      padding: 0.75rem 0.9rem;
+      border-radius: 12px;
+      background: #fff;
+      border: 1px solid var(--border);
+      color: #234;
+      font-size: 0.9rem;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    footer {
+      padding: 1.6rem 0 2.5rem;
+    }
+
+    .footer-card {
+      border-top: 1px solid var(--border);
+      padding-top: 1.2rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 860px) {
+      .news-grid,
+      .schedule-grid,
+      .registration-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-wrap {
+        padding: 2rem;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        width: 100%;
+        gap: 1rem;
+      }
+
+      .hero {
+        padding-top: 3.5rem;
+      }
+
+      .hero-wrap,
+      .description-card,
+      .registration-card,
+      .card {
+        padding: 1.35rem;
+      }
+
+      h1 {
+        font-size: clamp(2.2rem, 11vw, 3.4rem);
+      }
+
+      .schedule-item {
+        flex-direction: column;
+      }
+
+      .time-box {
+        min-width: 0;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a href="#home" class="brand">
+        <div class="brand-mark"><span>NS</span></div>
+        <div class="brand-text">
+          <strong>North Star Azure Group</strong>
+          <span>Azure Fundamentals User Group</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#description">About</a>
+        <a href="#news">News</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#registration" class="btn btn-primary">Register</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-wrap">
+          <div class="eyebrow">Azure learning • Community • Practical updates</div>
+          <h1>North Star Azure Group</h1>
+          <p>
+            A professional and welcoming Azure Fundamentals user group for learners, technology professionals, students, and community members who want a clear place to build cloud knowledge, stay informed, and connect through thoughtful bi-monthly meetings.
+          </p>
+          <div class="hero-actions">
+            <a href="#registration" class="btn btn-primary">Register with Google Form</a>
+            <a href="#schedule" class="btn btn-secondary">View Meeting Schedule</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="description">
+      <div class="container">
+        <div class="section-header">
+          <h2>Group Description</h2>
+        </div>
+        <div class="card description-card">
+          <p>
+            North Star Azure Group is focused on making Azure Fundamentals more accessible through a clean, practical, and community-driven learning experience. The group is designed for people who are beginning their cloud journey as well as those who want to strengthen their understanding of core Azure concepts.
+          </p>
+          <p>
+            Each gathering is intended to provide concise learning, relevant Microsoft Azure updates, and meaningful discussion in a format that respects people’s time while building a strong local network of support and shared growth.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="news">
+      <div class="container">
+        <div class="section-header">
+          <h2>News and Updates</h2>
+          <p>Use this space to share the latest announcements, learning topics, and community news.</p>
+        </div>
+
+        <div class="news-grid">
+          <article class="card">
+            <span class="label">Featured Update</span>
+            <h3>Welcome to the launch of North Star Azure Group</h3>
+            <p>
+              We are building a local space where members can learn Azure fundamentals together, follow important updates, and grow through consistent community engagement.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="label">What to Expect</span>
+            <div class="news-list">
+              <div class="news-item">
+                <h4>Azure Fundamentals Topics</h4>
+                <p>Beginner-friendly content covering cloud concepts, Azure services, and practical first steps.</p>
+              </div>
+              <div class="news-item">
+                <h4>Microsoft Updates</h4>
+                <p>Relevant Azure news, platform changes, and certification-related information for members.</p>
+              </div>
+              <div class="news-item">
+                <h4>Community Announcements</h4>
+                <p>Upcoming sessions, shared resources, and member milestones that keep the group active and informed.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="schedule">
+      <div class="container">
+        <div class="section-header">
+          <h2>Meeting Schedule</h2>
+          <p>The group meets bi-monthly on the 2nd Thursday from 5:30 PM to 7:00 PM.</p>
+        </div>
+
+        <div class="schedule-grid">
+          <article class="card">
+            <span class="label">Regular Schedule</span>
+            <h3>Bi-monthly evening meetup</h3>
+            <p class="meta">
+              North Star Azure Group meets every other month on the 2nd Thursday. The format is designed to be professional, approachable, and consistent for learners and working professionals.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="label">Sample Meeting Flow</span>
+            <div class="schedule-list">
+              <div class="schedule-item">
+                <div class="time-box"><span>5:30</span>PM</div>
+                <div>
+                  <h4>Welcome and introductions</h4>
+                  <p>Opening remarks, member welcome, and group announcements.</p>
+                </div>
+              </div>
+              <div class="schedule-item">
+                <div class="time-box"><span>5:45</span>PM</div>
+                <div>
+                  <h4>Azure fundamentals session</h4>
+                  <p>A focused beginner-friendly topic, practical walkthrough, or short demo.</p>
+                </div>
+              </div>
+              <div class="schedule-item">
+                <div class="time-box"><span>6:30</span>PM</div>
+                <div>
+                  <h4>News, updates, and Q&amp;A</h4>
+                  <p>Microsoft Azure news, certification resources, discussion, and next session preview.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="registration">
+      <div class="container">
+        <div class="section-header">
+          <h2>Registration</h2>
+          <p>Use a Google Form as the registration page for members to sign up and receive updates.</p>
+        </div>
+
+        <div class="registration-grid">
+          <article class="card registration-card">
+            <span class="label">Google Form Registration</span>
+            <h3>Register for North Star Azure Group</h3>
+            <p>
+              Replace the placeholder link below with your actual Google Form link. This keeps the page simple and directs all signups to one clean registration page.
+            </p>
+            <div class="registration-actions">
+              <a href="https://forms.google.com" target="_blank" rel="noopener" class="btn btn-primary">Open Google Form</a>
+            </div>
+            <div class="google-form-box">
+              <div class="small-note">Replace this placeholder with your actual Google Form URL:</div>
+              <code>https://forms.google.com/your-registration-link</code>
+            </div>
+          </article>
+
+          <article class="card registration-card">
+            <span class="label">Optional Embed</span>
+            <h3>Embed the Google Form on the page</h3>
+            <p>
+              If you want the registration form to appear directly on this page instead of opening a new tab, replace the placeholder iframe source below with the Google Form embed URL.
+            </p>
+            <div class="google-form-box">
+              <code>&lt;iframe src="https://docs.google.com/forms/d/e/YOUR-FORM-ID/viewform?embedded=true" width="100%" height="820" frameborder="0" marginheight="0" marginwidth="0"&gt;Loading…&lt;/iframe&gt;</code>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-card">
+        <div>North Star Azure Group</div>
+        <div>2nd Thursday • 5:30 PM – 7:00 PM • Bi-monthly</div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
