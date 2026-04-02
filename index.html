@@ -22,7 +22,6 @@
       --azure-darker: #005a9e;
       --azure-soft: #eff6fc;
       --shadow-sm: 0 1.6px 3.6px rgba(0, 0, 0, 0.132), 0 0.3px 0.9px rgba(0, 0, 0, 0.108);
-      --shadow-md: 0 6.4px 14.4px rgba(0, 0, 0, 0.132), 0 1.2px 3.6px rgba(0, 0, 0, 0.108);
       --radius: 8px;
       --max: 1200px;
       --nav-height: 64px;
@@ -48,7 +47,6 @@
       margin: 0 auto;
     }
 
-    /* Header */
     .topbar {
       position: sticky;
       top: 0;
@@ -94,7 +92,6 @@
       font-size: 1.0625rem;
       font-weight: 600;
       color: var(--heading);
-      letter-spacing: 0;
       white-space: nowrap;
     }
 
@@ -127,7 +124,6 @@
       color: var(--azure-darker);
     }
 
-    /* Fluent-style buttons */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -149,7 +145,6 @@
       background: var(--azure);
       color: #fff;
       border-color: var(--azure);
-      box-shadow: none;
     }
 
     .btn-primary:hover {
@@ -177,7 +172,6 @@
       background: #edebe9;
     }
 
-    /* Hero */
     .hero {
       padding: 4.5rem 0 2.5rem;
       background: linear-gradient(180deg, #ffffff 0%, #f8fbfe 100%);
@@ -224,7 +218,6 @@
       margin-top: 1.5rem;
     }
 
-    /* Sections */
     section {
       padding: 3.5rem 0;
     }
@@ -283,7 +276,8 @@
 
     .news-grid,
     .schedule-grid,
-    .registration-grid {
+    .registration-grid,
+    .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1.25rem;
@@ -341,7 +335,6 @@
       font-weight: 700;
       line-height: 1.1;
       border: 1px solid #cfe3f8;
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.4);
     }
 
     .time-box span {
@@ -352,11 +345,13 @@
       margin-bottom: 0.2rem;
     }
 
-    .registration-card {
+    .registration-card,
+    .contact-card {
       padding: 1.75rem;
     }
 
-    .registration-actions {
+    .registration-actions,
+    .contact-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 0.75rem;
@@ -385,7 +380,6 @@
       font-family: Consolas, "Courier New", monospace;
     }
 
-    /* Footer */
     footer {
       padding: 2rem 0 2.75rem;
       background: #fff;
@@ -402,11 +396,11 @@
       font-size: 0.9375rem;
     }
 
-    /* Responsive */
     @media (max-width: 960px) {
       .news-grid,
       .schedule-grid,
-      .registration-grid {
+      .registration-grid,
+      .contact-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -455,7 +449,8 @@
       }
 
       .hero-actions,
-      .registration-actions {
+      .registration-actions,
+      .contact-actions {
         flex-direction: column;
         align-items: stretch;
       }
@@ -466,7 +461,8 @@
 
       .card,
       .description-card,
-      .registration-card {
+      .registration-card,
+      .contact-card {
         padding: 1.2rem;
       }
 
@@ -496,7 +492,8 @@
         <a href="#description">About</a>
         <a href="#news">News</a>
         <a href="#schedule">Schedule</a>
-        <a href="#registration" class="btn btn-primary">Register</a>
+        <a href="#registration">Register</a>
+        <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
@@ -511,8 +508,8 @@
             A professional and welcoming Azure Fundamentals user group for learners, technology professionals, students, and community members who want a clear place to build cloud knowledge, stay informed, and connect through thoughtful bi-monthly meetings.
           </p>
           <div class="hero-actions">
-            <a href="#registration" class="btn btn-primary">Register with Google Form</a>
-            <a href="#schedule" class="btn btn-secondary">View Meeting Schedule</a>
+            <a href="#registration" class="btn btn-primary">Register</a>
+            <a href="#contact" class="btn btn-secondary">Contact Us</a>
           </div>
         </div>
       </div>
@@ -621,34 +618,65 @@
       <div class="container">
         <div class="section-header">
           <h2>Registration</h2>
-          <p>Use a Google Form as the registration page for members to sign up and receive updates.</p>
+          <p>Use this Google Form for member registration and event updates.</p>
         </div>
 
         <div class="registration-grid">
           <article class="card registration-card">
-            <span class="label">Google Form Registration</span>
+            <span class="label">Registration Form</span>
             <h3>Register for North Star Azure Group</h3>
             <p>
-              Replace the placeholder link below with your actual Google Form link. This keeps the page simple and directs all signups to one clean registration page.
+              Use the registration form below to sign up for the group, receive updates, and stay informed about upcoming sessions and announcements.
             </p>
             <div class="registration-actions">
-              <a href="https://forms.google.com" target="_blank" rel="noopener" class="btn btn-primary">Open Google Form</a>
+              <a href="https://forms.google.com" target="_blank" rel="noopener" class="btn btn-primary">Open Registration Form</a>
             </div>
             <div class="google-form-box">
-              <div class="small-note">Replace this placeholder with your actual Google Form URL:</div>
-              <code>https://forms.google.com/your-registration-link</code>
+              <div class="small-note">Replace this placeholder with your actual registration Google Form URL:</div>
+              <code>https://forms.google.com/your-registration-form-link</code>
             </div>
           </article>
 
           <article class="card registration-card">
-            <span class="label">Optional Embed</span>
-            <h3>Embed the Google Form on the page</h3>
+            <span class="label">Why Register</span>
+            <h3>Stay connected with the group</h3>
             <p>
-              If you want the registration form to appear directly on this page instead of opening a new tab, replace the placeholder iframe source below with the Google Form embed URL.
+              Registration helps members receive meeting reminders, topic updates, and future announcements while keeping the process simple and organized in one place.
             </p>
-            <div class="google-form-box">
-              <code>&lt;iframe src="https://docs.google.com/forms/d/e/YOUR-FORM-ID/viewform?embedded=true" width="100%" height="820" frameborder="0" marginheight="0" marginwidth="0"&gt;Loading…&lt;/iframe&gt;</code>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-header">
+          <h2>Contact Us</h2>
+          <p>Use this separate Google Form to ask questions, share ideas, or reach out to the group organizers.</p>
+        </div>
+
+        <div class="contact-grid">
+          <article class="card contact-card">
+            <span class="label">Contact Form</span>
+            <h3>Get in touch with North Star Azure Group</h3>
+            <p>
+              Use the contact form for general questions, speaker ideas, partnership inquiries, or suggestions for future sessions.
+            </p>
+            <div class="contact-actions">
+              <a href="https://forms.google.com" target="_blank" rel="noopener" class="btn btn-primary">Open Contact Form</a>
             </div>
+            <div class="google-form-box">
+              <div class="small-note">Replace this placeholder with your actual contact Google Form URL:</div>
+              <code>https://forms.google.com/your-contact-form-link</code>
+            </div>
+          </article>
+
+          <article class="card contact-card">
+            <span class="label">Community Support</span>
+            <h3>Share feedback and ideas</h3>
+            <p>
+              We welcome topic suggestions, community partnerships, volunteer interest, and feedback that can help strengthen the group and improve future events.
+            </p>
           </article>
         </div>
       </div>
