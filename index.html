@@ -280,22 +280,36 @@
       line-height: 1.6;
     }
 
-    .description-card {
-      padding: 1.75rem;
-      border-radius: 20px;
-    }
-
-    .description-card p + p {
-      margin-top: 1rem;
-    }
-
+    .hero-grid,
     .news-grid,
     .schedule-grid,
     .registration-grid,
-    .contact-grid {
+    .contact-grid,
+    .team-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1.25rem;
+    }
+
+    .hero-card {
+      padding: 2rem;
+      border-radius: 22px;
+      height: 100%;
+    }
+
+    .hero-card p + p {
+      margin-top: 1rem;
+    }
+
+    .hero-title-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 100%;
+    }
+
+    .hero-description-card {
+      background: linear-gradient(180deg, #ffffff 0%, #f9fbfe 100%);
     }
 
     .label {
@@ -361,7 +375,8 @@
     }
 
     .registration-card,
-    .contact-card {
+    .contact-card,
+    .team-card {
       padding: 1.75rem;
       border-radius: 20px;
     }
@@ -396,6 +411,28 @@
       font-family: Consolas, "Courier New", monospace;
     }
 
+    .team-card {
+      text-align: center;
+    }
+
+    .team-photo {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 1rem;
+      border: 4px solid #edf5fd;
+      box-shadow: 0 8px 20px rgba(0, 120, 212, 0.10);
+      background: #f5f9fd;
+    }
+
+    .team-role {
+      color: var(--azure-dark);
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
     footer {
       padding: 2rem 0 2.75rem;
       background: #fff;
@@ -413,10 +450,12 @@
     }
 
     @media (max-width: 960px) {
+      .hero-grid,
       .news-grid,
       .schedule-grid,
       .registration-grid,
-      .contact-grid {
+      .contact-grid,
+      .team-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -484,9 +523,10 @@
       }
 
       .card,
-      .description-card,
+      .hero-card,
       .registration-card,
-      .contact-card {
+      .contact-card,
+      .team-card {
         padding: 1.2rem;
       }
 
@@ -497,6 +537,11 @@
       .time-box {
         width: 100%;
         min-width: 0;
+      }
+
+      .team-photo {
+        width: 120px;
+        height: 120px;
       }
     }
   </style>
@@ -514,7 +559,8 @@
         </a>
 
         <nav class="nav-links">
-          <a href="#description">About</a>
+          <a href="#home">About</a>
+          <a href="#team">Team</a>
           <a href="#news">News</a>
           <a href="#schedule">Schedule</a>
           <a href="#registration">Register</a>
@@ -527,31 +573,61 @@
       <section class="hero" id="home">
         <div class="container">
           <div class="hero-wrap">
-            <div class="eyebrow">Azure learning • Community • Practical updates</div>
-            <h1>North Star Azure Group</h1>
-            <p>
-              A professional and welcoming Azure Fundamentals user group for learners, technology professionals, students, and community members who want a clear place to build cloud knowledge, stay informed, and connect through thoughtful bi-monthly meetings.
-            </p>
-            <div class="hero-actions">
-              <a href="#registration" class="btn btn-primary">Register</a>
-              <a href="#contact" class="btn btn-secondary">Contact Us</a>
+            <div class="hero-grid">
+              <article class="card hero-card hero-title-card">
+                <div class="eyebrow">Azure learning • Community • Practical updates</div>
+                <h1>North Star Azure Group</h1>
+                <p>
+                  A professional and welcoming Azure Fundamentals user group for learners, technology professionals, students, and community members who want a clear place to build cloud knowledge, stay informed, and connect through thoughtful bi-monthly meetings.
+                </p>
+                <div class="hero-actions">
+                  <a href="#registration" class="btn btn-primary">Register</a>
+                  <a href="#contact" class="btn btn-secondary">Contact Us</a>
+                </div>
+              </article>
+
+              <article class="card hero-card hero-description-card">
+                <span class="label">Group Description</span>
+                <h3>Practical learning with a strong local community</h3>
+                <p>
+                  North Star Azure Group is focused on making Azure Fundamentals more accessible through a clean, practical, and community-driven learning experience. The group is designed for people who are beginning their cloud journey as well as those who want to strengthen their understanding of core Azure concepts.
+                </p>
+                <p>
+                  Each gathering is intended to provide concise learning, relevant Microsoft Azure updates, and meaningful discussion in a format that respects people’s time while building a strong local network of support and shared growth.
+                </p>
+              </article>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="description">
+      <section id="team">
         <div class="container">
           <div class="section-header">
-            <h2>Group Description</h2>
+            <h2>North Star Azure Group Team</h2>
+            <p>Meet the team helping build a welcoming and practical Azure learning community.</p>
           </div>
-          <div class="card description-card">
-            <p>
-              North Star Azure Group is focused on making Azure Fundamentals more accessible through a clean, practical, and community-driven learning experience. The group is designed for people who are beginning their cloud journey as well as those who want to strengthen their understanding of core Azure concepts.
-            </p>
-            <p>
-              Each gathering is intended to provide concise learning, relevant Microsoft Azure updates, and meaningful discussion in a format that respects people’s time while building a strong local network of support and shared growth.
-            </p>
+
+          <div class="team-grid">
+            <article class="card team-card">
+              <img src="Abdul.png" alt="Abdul Abdi" class="team-photo" />
+              <span class="label">Team Member</span>
+              <h3>Abdul Abdi</h3>
+              <div class="team-role">Founder and Community Lead</div>
+              <p>
+                Abdul Abdi helps lead the vision for North Star Azure Group, bringing people together around accessible Azure learning, community engagement, and practical technology growth.
+              </p>
+            </article>
+
+            <article class="card team-card">
+              <img src="Ahmed.png" alt="Ahmed Abdi" class="team-photo" />
+              <span class="label">Team Member</span>
+              <h3>Ahmed Abdi</h3>
+              <div class="team-role">Community Team Member</div>
+              <p>
+                Ahmed Abdi supports the group’s mission by helping strengthen the community experience, encourage participation, and contribute to a welcoming environment for learners and professionals.
+              </p>
+            </article>
           </div>
         </div>
       </section>
